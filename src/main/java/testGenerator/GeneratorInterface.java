@@ -1,4 +1,4 @@
-package generator;
+package testGenerator;
 
 import java.util.List;
 

@@ -75,7 +75,7 @@ public class RequirementsHandler {
 
     private void setCoefficient(String whichValue) {
 
-        System.out.println("Insert the " + whichValue + " coefficient. Only even number can be inserted:");
+        System.out.println("Insert the " + whichValue + " coefficient. Only integer can be inserted:");
 
         if (!isInsertedValueNumber()) {
             setStartingPointValue(whichValue);

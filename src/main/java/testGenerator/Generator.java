@@ -1,4 +1,4 @@
-package generator;
+package testGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,14 +9,15 @@ public class Generator implements  GeneratorInterface {
     private long coefficient;
     private int timesToGenerate;
     private List<Long> listOfGeneratedValues;
+    private int fraction;
 
     public Generator(long startingNumber, long coefficient, int timesToGenerate) {
 
-        this.listOfGeneratedValues = new ArrayList<>();
+        listOfGeneratedValues = new ArrayList<>();
+        fraction = 2147483647;
         this.startingNumber = startingNumber;
         this.coefficient = coefficient;
         this.timesToGenerate = timesToGenerate;
-        System.out.println(this.startingNumber + " " + this.coefficient + " " + this.timesToGenerate);
     }
 
     public List<Long> getListOfGeneratedValues() {
@@ -25,7 +26,6 @@ public class Generator implements  GeneratorInterface {
         long generatedValue = 0;
         while (timesGenerated != timesToGenerate) {
             generatedValue = getGeneratedValue();
-            System.out.println("Sugeneruotas skaicius:" + generatedValue);
             listOfGeneratedValues.add(generatedValue);
             timesGenerated++;
         }
@@ -35,7 +35,7 @@ public class Generator implements  GeneratorInterface {
     private long getGeneratedValue() {
 
         long result = 0;
-        result = startingNumber * coefficient % 2147483647;
+        result = startingNumber * coefficient % fraction;
         startingNumber = result;
         return result;
     }
