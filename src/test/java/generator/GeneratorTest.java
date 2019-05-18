@@ -1,4 +1,4 @@
-package testGenerator;
+package generator;
 
 import handlers.enums.Coefficient;
 import org.junit.Before;
