@@ -1,4 +1,4 @@
-package main;
+package handlers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,21 +7,26 @@ import java.util.Scanner;
 public class RequirementsHandler {
 
     private Scanner inputReader;
-    private List<Integer> startingPointValues;
-    private List<Integer> usersCoefficientValues;
-    private int tempValue;
+    private List<Long> startingPointValues;
+    private List<Long> usersCoefficientValues;
+    private long tempValue;
 
-    public RequirementsHandler(){
+    public RequirementsHandler() {
+        build();
+    }
+
+    private void build() {
 
         inputReader = new Scanner(System.in);
         startingPointValues = new ArrayList<>();
         usersCoefficientValues = new ArrayList<>();
 
         setUserValues();
-        if (!hasUserOwnCoefficients()) {
+        if (hasUserOwnCoefficients()) {
             setUserCoefficients();
         }
         startSolutionCreator();
+        inputReader.close();
     }
 
     private void setUserValues() {
@@ -39,6 +44,7 @@ public class RequirementsHandler {
             setStartingPointValue(whichValue);
         } else {
             startingPointValues.add(tempValue);
+            System.out.println(startingPointValues.get(0));
         }
     }
 
@@ -91,6 +97,6 @@ public class RequirementsHandler {
 
     private void startSolutionCreator() {
 
-        SolutionCreator solutionCreator = new SolutionCreator(startingPointValues, usersCoefficientValues);
+        SolutionHandler solutionHandler = new SolutionHandler(startingPointValues, usersCoefficientValues);
     }
 }

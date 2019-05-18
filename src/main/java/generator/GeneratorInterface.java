@@ -1,6 +1,8 @@
 package generator;
 
+import java.util.List;
+
 public interface GeneratorInterface {
 
-    void generateValue();
+    List<Long> getListOfGeneratedValues();
 }
