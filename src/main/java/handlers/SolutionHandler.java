@@ -36,9 +36,13 @@ public class SolutionHandler {
             firstGenerator = new Generator(startingNumbers.get(0), Coefficient.SMALL.getCoefficient(), 1000000);
             secondGenerator = new Generator(startingNumbers.get(1), Coefficient.BIG.getCoefficient(), 1000000);
             firstGeneratedValues = firstGenerator.getListOfGeneratedValues();
+            secondGeneratedValues = secondGenerator.getListOfGeneratedValues();
+            System.out.println(firstGeneratedValues.size());
+            System.out.println(secondGeneratedValues.size());
         } else {
             firstGenerator = new Generator(startingNumbers.get(0), usersCoefficients.get(0), 1000000);
             secondGenerator = new Generator(startingNumbers.get(1), usersCoefficients.get(1), 1000000);
+            firstGeneratedValues = firstGenerator.getListOfGeneratedValues();
             secondGeneratedValues = secondGenerator.getListOfGeneratedValues();
         }
     }

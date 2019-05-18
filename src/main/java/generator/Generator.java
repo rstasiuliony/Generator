@@ -37,7 +37,6 @@ public class Generator implements  GeneratorInterface {
         long result = 0;
         result = startingNumber * coefficient % 2147483647;
         startingNumber = result;
-
         return result;
     }
 }
