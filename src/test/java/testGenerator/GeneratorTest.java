@@ -1,5 +1,6 @@
 package testGenerator;
 
+import handlers.enums.Coefficient;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,12 +11,12 @@ import static org.junit.Assert.assertEquals;
 
 public class GeneratorTest {
 
-    private Generator generator;
+    private Generator generatorSmallCoefficient;
 
     @Before
     public void setUp() throws Exception {
 
-        generator = new Generator(65, 8921, 4);
+        generatorSmallCoefficient = new Generator(65, Coefficient.SMALL.getCoefficient(), 4);
     }
 
     @Test
@@ -27,7 +28,7 @@ public class GeneratorTest {
         correctValues.add(245556042L);
         correctValues.add(1744312007L);
 
-        List<Long> generatedList = generator.getListOfGeneratedValues();
+        List<Long> generatedList = generatorSmallCoefficient.getListOfGeneratedValues();
 
         assertEquals(correctValues, generatedList);
     }
