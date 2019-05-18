@@ -29,10 +29,10 @@ public class SolutionHandler {
     private void build() {
 
         generateValues();
-        List<String> firstConvertedValues = getConvertedValuesToBinary();
-        List<String> secondConvertedValues = getConvertedValuesToBinary();
-//        countSameBinaryValues(firstConvertedValues, secondConvertedValues);
-//        provideResultToUser();
+        List<String> firstConvertedValues = getConvertedValuesToBinary(firstGeneratedValues);
+        List<String> secondConvertedValues = getConvertedValuesToBinary(secondGeneratedValues);
+        countSameBinaryValues(firstConvertedValues, secondConvertedValues);
+        provideResultToUser();
     }
 
     private void generateValues() {
@@ -53,35 +53,38 @@ public class SolutionHandler {
         }
     }
 
-    private List<String> getConvertedValuesToBinary() {
+    private List<String> getConvertedValuesToBinary(List<Long> valuesToConvert) {
 
         BinaryConverter binaryConverter = new BinaryConverter();
         List<String> convertedValues = new ArrayList<>();
 
-        for (Long value : firstGeneratedValues) {
+        for (Long value : valuesToConvert) {
             convertedValues.add(binaryConverter.getConvertedValue(value));
         }
         return convertedValues;
     }
 
-//    private void countSameBinaryValues(List<String> comparableListA, List<String> comparableListB) {
-//
-//        int count = 0;
-//        while (count != comparableListA.size()) {
-//            String eightSymbolsA = comparableListA.get(count);
-//            String eightSymbolsB = comparableListB.get(count);
-//            eightSymbolsA = eightSymbolsA.substring(eightSymbolsA.length() - 8);
-//            System.out.println(eightSymbolsA);
-//            eightSymbolsB = eightSymbolsB.substring(eightSymbolsB.length() - 8);
-//            if (eightSymbolsA.equalsIgnoreCase(eightSymbolsB)) {
-//                numberOfSameBinaryValues++;
-//            }
-//            count++;
-//        }
-//    }
-//
-//    private void provideResultToUser() {
-//
-//        System.out.println("Last 8 bits are the same in " + numberOfSameBinaryValues + " values.");
-//    }
+    private void countSameBinaryValues(List<String> comparableListA, List<String> comparableListB) {
+
+        int count = 0;
+        while (count != comparableListA.size()) {
+            String eightSymbolsA = comparableListA.get(count);
+            String eightSymbolsB = comparableListB.get(count);
+
+            eightSymbolsA = "00000000000000000000000000000000".substring(eightSymbolsA.length()) + eightSymbolsA;
+            eightSymbolsB = "00000000000000000000000000000000".substring(eightSymbolsB.length()) + eightSymbolsB;
+
+            eightSymbolsA = eightSymbolsA.substring(eightSymbolsA.length() - 8);
+            eightSymbolsB = eightSymbolsB.substring(eightSymbolsB.length() - 8);
+            if (eightSymbolsA.equalsIgnoreCase(eightSymbolsB)) {
+                numberOfSameBinaryValues++;
+            }
+            count++;
+        }
+    }
+
+    private void provideResultToUser() {
+
+        System.out.println("Last 8 bits are the same in " + numberOfSameBinaryValues + " values.");
+    }
 }

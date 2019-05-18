@@ -44,7 +44,6 @@ public class RequirementsHandler {
             setStartingPointValue(whichValue);
         } else {
             startingPointValues.add(tempValue);
-            System.out.println(startingPointValues.get(0));
         }
     }
 
