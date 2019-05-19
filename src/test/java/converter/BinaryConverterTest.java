@@ -16,7 +16,7 @@ public class BinaryConverterTest {
     }
 
     @Test
-    public void getConvertedValue() {
+    public void testGetConvertedValue() {
 
         String result = binaryConverter.getConvertedValue(500);
         assertEquals("111110100", result);

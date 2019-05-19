@@ -1,6 +1,6 @@
 package converter;
 
-import java.lang.*;
+import java.lang.Long;
 
 public class BinaryConverter implements ConverterInterface {
 

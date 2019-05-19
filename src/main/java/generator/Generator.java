@@ -9,12 +9,12 @@ public class Generator implements  GeneratorInterface {
     private long coefficient;
     private int timesToGenerate;
     private List<Long> listOfGeneratedValues;
-    private int fraction;
+    private int modula;
 
     public Generator(long startingNumber, long coefficient, int timesToGenerate) {
 
         listOfGeneratedValues = new ArrayList<>();
-        fraction = 2147483647;
+        modula = 2147483647;
         this.startingNumber = startingNumber;
         this.coefficient = coefficient;
         this.timesToGenerate = timesToGenerate;
@@ -35,7 +35,7 @@ public class Generator implements  GeneratorInterface {
     private long getGeneratedValue() {
 
         long result = 0;
-        result = startingNumber * coefficient % fraction;
+        result = startingNumber * coefficient % modula;
         startingNumber = result;
         return result;
     }

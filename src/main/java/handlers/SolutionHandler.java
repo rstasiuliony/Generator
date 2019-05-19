@@ -15,6 +15,9 @@ public class SolutionHandler {
     private List<Long> secondGeneratedValues;
     private Generator firstGenerator;
     private Generator secondGenerator;
+    private BinaryConverter binaryConverter;
+    private List<String> convertedValues;
+
     private int numberOfSameBinaryValues;
     private static final int TIMESTOGENERATE = 1000000;
 
@@ -41,8 +44,8 @@ public class SolutionHandler {
         secondGeneratedValues = new ArrayList<>();
 
         if (usersCoefficients.size() == 0) {
-            firstGenerator = new Generator(startingNumbers.get(0), Coefficient.SMALL.getCoefficient(), TIMESTOGENERATE);
-            secondGenerator = new Generator(startingNumbers.get(1), Coefficient.BIG.getCoefficient(), TIMESTOGENERATE);
+            firstGenerator = new Generator(startingNumbers.get(0), Coefficient.A.getCoefficient(), TIMESTOGENERATE);
+            secondGenerator = new Generator(startingNumbers.get(1), Coefficient.B.getCoefficient(), TIMESTOGENERATE);
             firstGeneratedValues = firstGenerator.getListOfGeneratedValues();
             secondGeneratedValues = secondGenerator.getListOfGeneratedValues();
         } else {

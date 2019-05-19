@@ -37,8 +37,8 @@ public class RequirementsHandler {
 
     private void setStartingPointValue(String whichValue) {
 
-        System.out.println("Insert the " + whichValue + " value which will be a starting point to generate and compare numbers. " +
-                "Only even number can be inserted:");
+        System.out.println("Enter the " + whichValue + " value which will be a starting point to generate and compare numbers. " +
+                "Only integer number is accepted.");
 
         if (!isInsertedValueNumber()) {
             setStartingPointValue(whichValue);
@@ -50,13 +50,12 @@ public class RequirementsHandler {
     private boolean hasUserOwnCoefficients() {
 
         System.out.println("Values will be generated using the following coefficients: 16807 for the first value " +
-                "and 48271 for the second value.\nIf you prefer to use these coefficients click 0, " +
-                "otherwise click 1");
+                "and 48271 for the second value.\nIf you prefer to use these coefficients enter 0, " +
+                "otherwise enter 1");
 
         if (!isInsertedValueNumber()) {
             hasUserOwnCoefficients();
         }
-
         if (tempValue != 0 && tempValue != 1) {
             System.out.println("Incorrect value. Try again.");
             hasUserOwnCoefficients();
@@ -76,7 +75,7 @@ public class RequirementsHandler {
 
         System.out.println("Insert the " + whichValue + " coefficient. Only integer can be inserted:");
 
-        if (!isInsertedValueNumber()) {
+        if (!isInsertedValueNumber()) { 
             setStartingPointValue(whichValue);
         } else {
             usersCoefficientValues.add(tempValue);

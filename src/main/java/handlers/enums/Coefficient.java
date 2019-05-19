@@ -2,8 +2,8 @@ package handlers.enums;
 
 public enum Coefficient {
 
-    SMALL (16807),
-    BIG (48271);
+    A (16807),
+    B (48271);
 
     private final int coefficient;
 

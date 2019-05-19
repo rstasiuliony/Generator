@@ -19,8 +19,8 @@ public class GeneratorTest {
     @Before
     public void setUp() throws Exception {
 
-        generatorSmallCoefficient = new Generator(65, Coefficient.SMALL.getCoefficient(), 4);
-        generatorBigCoefficient = new Generator(8921, Coefficient.BIG.getCoefficient(), 4);
+        generatorSmallCoefficient = new Generator(65, Coefficient.A.getCoefficient(), 4);
+        generatorBigCoefficient = new Generator(8921, Coefficient.B.getCoefficient(), 4);
     }
 
     @Test
